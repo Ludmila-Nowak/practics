@@ -89,22 +89,48 @@
 // task2-lesson2
 /* Напишіть функцію, яка приймає об'єкт і рахує загальну суму зарплат працівників. */
 //
-const someObj = {
-  worker1: 360,
-  worker2: 750,
-  worker3: 240,
-};
+// const someObj = {
+//   worker1: 360,
+//   worker2: 750,
+//   worker3: 240,
+// };
 
-function sallary(obj) {
-const arr = Object.values(obj);
-let sum = 0;
-for(const item of arr){
-  sum += item; 
-}
-return sum;
-}
-const sumSallary = sallary(someObj);
-console.log(sumSallary);
+// function sallary(obj) {
+// const arr = Object.values(obj);
+// let sum = 0;
+// for(const item of arr){
+//   sum += item;
+// }
+// return sum;
+// }
+// const sumSallary = sallary(someObj);
+// console.log(sumSallary);
 //
 
+/**
+ *? Напишіть ф-цію calcTotalPrice(someStones, stonesName),
+ *? яка приймає масив об'єктів та
+ *? рядок під назвою каменю.
+ *? Функція вважає та повертає загальну вартість каменів
+ *? з таким ім'ям, ціною та кількістю з об'єкта
+ */
 
+const stones = [
+  { name: "Изумруд", price: 1300, quantity: 4 },
+  { name: "Бриллиант", price: 2700, quantity: 6 },
+  { name: "Сапфир", price: 400, quantity: 7 },
+  { name: "Щебень", price: 150, quantity: 100 },
+];
+
+function calcTotalPrice(someStones, stonesName) {
+  // console.log(someStones);
+  // console.log(stonesName);
+  for (const stone of someStones) {
+    // console.log(stone);
+    if (stonesName === stone.name) {
+      return stone.price * stone.quantity;
+    }
+  }
+}
+const sum = calcTotalPrice(stones, "Сапфир");
+console.log(sum);
