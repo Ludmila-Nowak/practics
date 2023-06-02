@@ -115,22 +115,37 @@
  *? з таким ім'ям, ціною та кількістю з об'єкта
  */
 
-const stones = [
-  { name: "Изумруд", price: 1300, quantity: 4 },
-  { name: "Бриллиант", price: 2700, quantity: 6 },
-  { name: "Сапфир", price: 400, quantity: 7 },
-  { name: "Щебень", price: 150, quantity: 100 },
-];
+// const stones = [
+//   { name: "Изумруд", price: 1300, quantity: 4 },
+//   { name: "Бриллиант", price: 2700, quantity: 6 },
+//   { name: "Сапфир", price: 400, quantity: 7 },
+//   { name: "Щебень", price: 150, quantity: 100 },
+// ];
 
-function calcTotalPrice(someStones, stonesName) {
-  // console.log(someStones);
-  // console.log(stonesName);
-  for (const stone of someStones) {
-    // console.log(stone);
-    if (stonesName === stone.name) {
-      return stone.price * stone.quantity;
-    }
-  }
-}
-const sum = calcTotalPrice(stones, "Сапфир");
-console.log(sum);
+// function calcTotalPrice(someStones, stonesName) {
+//   // console.log(someStones);
+//   // console.log(stonesName);
+//   for (const stone of someStones) {
+//     // console.log(stone);
+//     if (stonesName === stone.name) {
+//       return stone.price * stone.quantity;
+//     }
+//   }
+// }
+// const sum = calcTotalPrice(stones, "Сапфир");
+// console.log(sum);
+
+// task 4
+
+// напиши код який із массиву arr видаляє елемент foo.
+// розвертає цей массив
+// і повертає рядок js is the best
+// вхідний массив не має змінюватись (мутуватися)
+
+const arr = ["best", "the", "foo", "is", "js"];
+const arr1 = arr.slice(0, arr.length);
+console.log(arr1);
+const index = arr1.indexOf("foo");
+arr1.splice(index, 1);
+arr1.reverse();
+console.log(arr1.join(" "));
