@@ -181,24 +181,59 @@
 *? Очікуваний результат {js: 3, nodejs: 3, html: 2, css: 2, react: 2}
 
  */
-const tweets = [
-  { id: "000", likes: 5, tags: ["js", "nodejs"] },
-  { id: "001", likes: 2, tags: ["html", "css"] },
-  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
-  { id: "003", likes: 8, tags: ["css", "react"] },
-  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
-];
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+//   { id: "003", likes: 8, tags: ["css", "react"] },
+//   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+// ];
 
-const calcTags = (arr) => {
-  const totalTags = arr.flatMap((tweet) => tweet.tags);
-  console.log(totalTags);
-  const allTags = totalTags.reduce((acc, tag) => {
-    console.log(acc);
-    return {
-      ...acc,
-      [tag]: acc[tag] ? acc[tag] + 1 : 1,
-    };
-  }, {});
-  return allTags;
-};
-console.log(calcTags(tweets));
+// const calcTags = (arr) => {
+//   const totalTags = arr.flatMap((tweet) => tweet.tags);
+//   console.log(totalTags);
+//   const allTags = totalTags.reduce((acc, tag) => {
+//     console.log(acc);
+//     return {
+//       ...acc,
+//       [tag]: acc[tag] ? acc[tag] + 1 : 1,
+//     };
+//   }, {});
+//   return allTags;
+// };
+// console.log(calcTags(tweets));
+
+//task3
+/**
+ *? Напиши клас Client який створює об'єкт
+ *? з ​​властивостями login email
+ *? Оголоси приватні властивості #login #email,
+ *? доступ до яких зроби через геттер та сеттер login email
+ */
+class Client {
+  #login;
+  #email;
+  constructor(login, email) {
+    this.#login = login;
+    this.#email = email;
+  }
+
+  get login() {
+    return this.#login;
+  }
+
+  set login(newLogin) {
+    this.#login = newLogin;
+  }
+  get email() {
+    return this.#email;
+  }
+
+  set email(newEmail) {
+    this.#email = newEmail;
+  }
+}
+
+const user1 = new Client("User1", "fgsdf@jf");
+user1.login = "login2";
+console.log(user1.login);
