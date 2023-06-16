@@ -158,19 +158,47 @@
  *? Результат вивести у консоль.
  *? Очікуваний результат ["Умань", "Харків", "Одеса"]
  */
-const concerts = {
-  Київ: new Date('2020-04-01'),
-  Умань: new Date('2023-07-02'),
-  Вінниця: new Date('2020-04-21'),
-  Одеса: new Date('2023-07-15'),
-  Хмельницький: new Date('2020-04-18'),
-  Харків: new Date('2023-07-10'),
+// const concerts = {
+//   Київ: new Date('2020-04-01'),
+//   Умань: new Date('2023-07-02'),
+//   Вінниця: new Date('2020-04-21'),
+//   Одеса: new Date('2023-07-15'),
+//   Хмельницький: new Date('2020-04-18'),
+//   Харків: new Date('2023-07-10'),
+// };
+// function sortConcerts(obj) {
+//   const keys = Object.keys(obj);
+//   return keys
+//     .filter(key => obj[key] > new Date())
+//     .sort((a, b) => obj[a] - obj[b]);
+// }
+// console.log(sortConcerts(concerts));
+// console.log(new Date('2020-04-18'));
+
+//Task 2
+/**
+*? Поверніть об'єкт, в якому вказано кількість тегів.
+*? Очікуваний результат {js: 3, nodejs: 3, html: 2, css: 2, react: 2}
+
+ */
+const tweets = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+const calcTags = (arr) => {
+  const totalTags = arr.flatMap((tweet) => tweet.tags);
+  console.log(totalTags);
+  const allTags = totalTags.reduce((acc, tag) => {
+    console.log(acc);
+    return {
+      ...acc,
+      [tag]: acc[tag] ? acc[tag] + 1 : 1,
+    };
+  }, {});
+  return allTags;
 };
-function sortConcerts(obj) {
-  const keys = Object.keys(obj);
-  return keys
-    .filter(key => obj[key] > new Date())
-    .sort((a, b) => obj[a] - obj[b]);
-}
-console.log(sortConcerts(concerts));
-console.log(new Date('2020-04-18'));
+console.log(calcTags(tweets));
