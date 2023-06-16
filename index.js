@@ -142,10 +142,35 @@
 // і повертає рядок js is the best
 // вхідний массив не має змінюватись (мутуватися)
 
-const arr = ["best", "the", "foo", "is", "js"];
-const arr1 = arr.slice(0, arr.length);
-console.log(arr1);
-const index = arr1.indexOf("foo");
-arr1.splice(index, 1);
-arr1.reverse();
-console.log(arr1.join(" "));
+// const arr = ["best", "the", "foo", "is", "js"];
+// const arr1 = arr.slice(0, arr.length);
+// console.log(arr1);
+// const index = arr1.indexOf("foo");
+// arr1.splice(index, 1);
+// arr1.reverse();
+// console.log(arr1.join(" "));
+
+/**
+ *? З об'єкту concerts потрібно отримати масив
+ *? в якому будуть лише імена міст.
+ *? З масиву потрібно прибрати міста, в яких концерт уже пройшов і
+ *? відсортувати їх у хронологічному порядку.
+ *? Результат вивести у консоль.
+ *? Очікуваний результат ["Умань", "Харків", "Одеса"]
+ */
+const concerts = {
+  Київ: new Date('2020-04-01'),
+  Умань: new Date('2023-07-02'),
+  Вінниця: new Date('2020-04-21'),
+  Одеса: new Date('2023-07-15'),
+  Хмельницький: new Date('2020-04-18'),
+  Харків: new Date('2023-07-10'),
+};
+function sortConcerts(obj) {
+  const keys = Object.keys(obj);
+  return keys
+    .filter(key => obj[key] > new Date())
+    .sort((a, b) => obj[a] - obj[b]);
+}
+console.log(sortConcerts(concerts));
+console.log(new Date('2020-04-18'));
